@@ -18,7 +18,8 @@ data:
     volumeBindingMode: Immediate
     parameters:
       numberOfReplicas: "{{ .Values.persistence.defaultClassReplicaCount }}"
-      staleReplicaTimeout: "30"
+      staleReplicaTimeout: "2880"
+      nodeSelector: "storage"
       fromBackup: ""
       baseImage: ""
       {{- if .Values.persistence.recurringJobs.enable }}
